@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Calibre';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/CalibreLight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Calibre';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/CalibreRegular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Calibre';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/CalibreMedium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Calibre';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/CalibreSemibold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Calibre';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/CalibreBold.otf') format('opentype');
+}
