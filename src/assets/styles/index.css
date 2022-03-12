@@ -28,21 +28,21 @@
     content: counter(section, decimal-leading-zero) '. ';
   }
   h2::after {
-    @apply block relative left-5 content-empty w-80 bg-navy-lightest h-0.5;
+    @apply block relative left-5 content-empty w-80 bg-navy-lightest;
+    height: 0.5px;
+  }
+
+  h3 {
+    @apply text-slate-lightest font-semibold hover:text-green duration-150  !important;
+    font-size: clamp(24px, 5vw, 28px) !important;
+  }
+
+  a {
+    @apply hover:text-green;
   }
 
   p {
     @apply text-slate text-xl mt-5 leading-1.3 mb-4 !important;
-  }
-
-  a {
-    @apply text-green bg-gradient-to-r from-green to-green bg-no-repeat duration-300 !important;
-    background-position: 0 90%;
-    background-size: 0 0.75px;
-  }
-
-  a:hover {
-    background-size: 100% 0.75px !important;
   }
 
   ol {
@@ -58,13 +58,8 @@
     content: counter(item, decimal-leading-zero) '. ';
   }
 
-  ul li {
-    @apply text-slate;
-  }
-
-  ul li::before {
-    @apply text-green;
-    content: '▹ ';
+  ul {
+    @apply text-slate text-sm font-mono;
   }
 }
 
@@ -73,9 +68,37 @@
     @apply content-empty absolute block border-2 w-full h-full rounded-md border-green top-5 left-5 duration-200;
   }
   .avatar::after {
-    @apply content-empty z-10 block absolute w-full h-full bg-green/40  duration-200;
+    @apply content-empty z-10 block absolute w-full h-full bg-green/40 rounded-md  duration-200;
   }
   .avatar {
     @apply hover:after:opacity-0 hover:before:top-4 hover:before:left-4;
+  }
+
+  .project-image {
+    @apply hover:after:opacity-0;
+  }
+  .project-image::after {
+    @apply content-empty z-10 block absolute inset-0 bg-green/30 rounded-md  duration-200;
+  }
+
+  .link {
+    @apply text-green bg-gradient-to-r from-green to-green bg-no-repeat duration-300 !important;
+    background-position: 0 90%;
+    background-size: 0 0.75px;
+  }
+
+  .link:hover {
+    background-size: 100% 0.75px !important;
+  }
+}
+
+@layer utilities {
+  .custom-marker li {
+    @apply text-slate;
+  }
+
+  .custom-marker li::before {
+    @apply text-green;
+    content: '▹ ';
   }
 }
