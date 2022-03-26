@@ -16,23 +16,36 @@ const ProjectItem = ({ data, variant }: ProjectItemProps) => {
     file: { url: imageUrl },
   } = image?.fields;
 
-  const imageStyle = variant === 'left' ? tw`left-0` : tw`right-0`;
-  const contentStyle = variant === 'left' ? tw`items-end` : tw`items-start`;
+  const imageStyle = variant === 'left' ? tw`laptop:left-0` : tw`laptop:right-0`;
+  const contentStyle = variant === 'left' ? tw`laptop:items-end` : tw`laptop:items-start`;
 
   return (
-    <div css={tw`relative w-full mb-28`}>
-      <div className="project-image" css={[tw`absolute top-0 w-[480px] h-[291px] `, imageStyle]}>
-        <img css={tw`w-full h-full rounded-md`} src={imageUrl} alt={imageTitle} />
+    <div css={tw`relative w-full mb-[30px]`}>
+      <div
+        className="project-image"
+        css={[
+          tw` overflow-hidden flex justify-center  h-[400px] laptop:(absolute top-0 w-[480px] h-[291px]) `,
+          imageStyle,
+        ]}
+      >
+        <img css={tw`h-full max-w-[none] rounded-md`} src={imageUrl} alt={imageTitle} />
       </div>
-      <div css={[tw` w-[content] relative flex flex-col`, contentStyle]}>
+      <div
+        css={[
+          tw`absolute p-[25px] pb-5 inset-0 bg-navy/90 shadow-lg top-0 laptop:(w-[content] relative flex flex-col)`,
+          contentStyle,
+        ]}
+      >
         <p css={tw`!text-green !text-sm !font-mono !my-[10px]`}>Featured Project</p>
         <h3>
           <a href="https://entertainment-hub-three.vercel.app/">{name}</a>
         </h3>
-        <div css={tw`w-[400px] px-4 py-1 my-2 bg-navy-light rounded-md z-20`}>
-          <p css={tw`text-right !text-lg`}>{documentToReactComponents(description)}</p>
+        <div css={tw` laptop:(w-[400px] px-4 py-4 bg-navy-light rounded-md z-20)`}>
+          <p css={tw`laptop:(text-right text-justify !text-lg)`}>
+            {documentToReactComponents(description)}
+          </p>
         </div>
-        <ul css={tw`flex gap-x-6 mt-6 mb-[15px]`}>
+        <ul css={tw`flex gap-x-6 mt-[15px] mb-[15px] laptop:(mt-6 mb-[15px])`}>
           {tags.map((tag: any) => (
             <li key={tag}>{tag}</li>
           ))}

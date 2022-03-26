@@ -7,7 +7,7 @@
 
 @layer base {
   body {
-    @apply font-sans !important;
+    @apply font-sans w-screen overflow-x-hidden !important;
   }
   main {
     counter-reset: section;
@@ -18,18 +18,14 @@
     font-size: clamp(40px, 8vw, 80px) !important;
   }
   h2 {
-    @apply flex items-center gap-x-2 mt-2.5 mb-10 text-slate-lightest font-semibold leading-1.1 !important;
-    font-size: clamp(26px, 5vw, 33px) !important;
+    @apply flex items-center gap-x-2 mt-2.5 mb-5 text-slate-lightest font-semibold leading-1.1 overflow-hidden !important;
+    font-size: clamp(16px, 26px, 33px) !important;
     counter-increment: section;
   }
   h2::before {
-    @apply self-stretch text-green font-mono font-normal !important;
+    @apply self-stretch text-green font-mono font-normal  !important;
     font-size: clamp(theme(fontSize.md), 3vw, theme(fontSize.xl)) !important;
     content: counter(section, decimal-leading-zero) '. ';
-  }
-  h2::after {
-    @apply block relative left-5 content-empty w-80 bg-navy-lightest;
-    height: 0.5px;
   }
 
   h3 {
@@ -42,7 +38,7 @@
   }
 
   p {
-    @apply text-slate text-xl mt-5 leading-1.3 mb-4 !important;
+    @apply text-slate text-lg mb-5 leading-1.3 laptop:text-xl;
   }
 
   ol {
@@ -50,6 +46,7 @@
   }
 
   ol li {
+    @apply laptop:text-xs laptop:font-mono !important;
     counter-increment: item;
   }
 
@@ -78,7 +75,7 @@
     @apply hover:after:opacity-0;
   }
   .project-image::after {
-    @apply content-empty z-10 block absolute inset-0 bg-green/30 rounded-md  duration-200;
+    @apply content-empty z-10 block absolute inset-0 laptop:bg-green/30 rounded-md  duration-200;
   }
 
   .link {
@@ -89,6 +86,12 @@
 
   .link:hover {
     background-size: 100% 0.75px !important;
+  }
+
+  .customHeading::after {
+    @apply block relative isolate left-5 content-empty w-20 bg-navy-lightest flex-1;
+    z-index: 1;
+    height: 0.5px;
   }
 }
 

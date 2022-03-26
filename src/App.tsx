@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import About from 'components/About';
+import Contact from 'components/Contact';
 import Hero from 'components/Hero';
 import Navbar from 'components/Navbar';
 import Project from 'components/Project';
@@ -9,6 +10,11 @@ import tw from 'twin.macro';
 
 const App = () => {
   const [projects, setProjects] = useState<Entry<any>[]>([]);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflowY = open ? 'hidden' : '';
+  }, [open]);
 
   useEffect(() => {
     (async () => {
@@ -26,12 +32,13 @@ const App = () => {
     })();
   }, []);
   return (
-    <div css={tw`bg-navy min-h-screen text-white`}>
-      <Navbar />
-      <main css={tw`px-[100px] max-w-5xl flex flex-col justify-center mx-auto`}>
+    <div css={tw`bg-navy min-h-screen text-white max-w-[screen] laptop:()`}>
+      <Navbar open={open} toggle={() => setOpen(!open)} />
+      <main css={tw`mx-4 max-w-5xl flex flex-col laptop:(px-[100px] justify-center mx-auto)`}>
         <Hero />
         <About />
         <Project data={projects} />
+        <Contact />
       </main>
     </div>
   );

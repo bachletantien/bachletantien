@@ -11,7 +11,7 @@ const Project = (props: ProjectProps) => {
 
   return (
     <div css={tw`py-24`}>
-      <h2>Some Things I've Built</h2>
+      <h2 className="customHeading">Some Things I've Built</h2>
       {data.map((item, index) => {
         return <ProjectItem key={item.name} data={item} variant={index % 2 ? 'right' : 'left'} />;
       })}

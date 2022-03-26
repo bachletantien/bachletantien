@@ -12,11 +12,15 @@ const sizes: Record<ButtonSize, TwStyle> = {
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
   size?: ButtonSize;
+  customStyle?: TwStyle;
 }
 
-const Button = ({ title, size = 'sm', ...rest }: ButtonProps) => {
+const Button = ({ title, size = 'sm', customStyle, ...rest }: ButtonProps) => {
   return (
-    <button css={[tw`border rounded text-green border-green font-mono`, sizes[size]]} {...rest}>
+    <button
+      css={[tw`border rounded text-green border-green font-mono`, sizes[size], customStyle]}
+      {...rest}
+    >
       {title}
     </button>
   );
