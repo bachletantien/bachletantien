@@ -41,6 +41,7 @@ module.exports = {
         tint: 'rgba(100,255,218,0.1)',
       },
     },
+
     extend: {
       lineHeight: {
         1.1: 1.1,

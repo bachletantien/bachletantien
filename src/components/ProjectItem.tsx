@@ -20,6 +20,7 @@ const ProjectItem = ({ data, variant }: ProjectItemProps) => {
   const contentStyle = variant === 'left' ? tw`laptop:items-end` : tw`laptop:items-start`;
 
   return (
+
     <div css={tw`relative w-full mb-[30px]`}>
       <div
         className="project-image"
